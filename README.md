@@ -7,10 +7,12 @@ This is a social media application developed as a project for the BusinessOnBot 
 - [What is whyb?](#what-is-whyb?)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
+- [Database schema](#database-schema)
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
 - [Screenshots](#screenshots)
+- [Creator](#creator)
 
 ## What is whyb>
 
@@ -36,6 +38,10 @@ So, when you're ready to dissect a beat or praise a riff, remember one word: why
 - Frontend: HTML, CSS, JavaScript (with Jinja templating)
 - Database: SQLAlchemy (with SQLite)
 - Deployment: PythonAnywhere
+
+## Database schema
+
+![image](https://github.com/mhmd-bilal/whyb-social-media-application/assets/131635254/c9e81614-24b6-44b8-90a3-6ccfec82f94f)
 
 ## Installation
 
