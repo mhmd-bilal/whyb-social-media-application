@@ -98,5 +98,12 @@ GET /api/posts/{name}: List all posts by a specific user
 ```
 
 ## Screenshots
-Include screenshots of your application to showcase its UI and features.
-```
+![1](https://github.com/mhmd-bilal/whyb-social-media-application/assets/131635254/6e84bc69-ba0d-4a2f-a4ca-416addd57401)
+![2](https://github.com/mhmd-bilal/whyb-social-media-application/assets/131635254/d5ce2aea-073b-4b55-8bf5-ffbdfea0a9e9)
+![3](https://github.com/mhmd-bilal/whyb-social-media-application/assets/131635254/f7e3c565-03c3-440b-b380-2ce13884de48)
+![4](https://github.com/mhmd-bilal/whyb-social-media-application/assets/131635254/75f0e99c-61f6-4cf1-8c46-61fcdbf17e43)
+![5](https://github.com/mhmd-bilal/whyb-social-media-application/assets/131635254/a3141e8c-046a-4a8e-9ab8-8d88b4426b6b)
+![6](https://github.com/mhmd-bilal/whyb-social-media-application/assets/131635254/c8815dd7-8d31-40d3-a606-3b4d0df33142)
+
+## Creator
+By Bilal
