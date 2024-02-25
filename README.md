@@ -75,23 +75,22 @@ flask run
 1. Visit the deployed URL to access the application.
 2. Register for a new account or log in with an existing one. To try login with :
 
-````
+```
 username: bzhal
 password: bilal
 ```
+
 3. Explore different functionalities such as creating posts, updating profile, searching for users, and many more.
 
 ##  API Endpoints
 Users:
-````
-
+```
 GET /api/users: List all users
 GET /api/users/{name}: Search for users by name
 
 ```
 Posts:
 ```
-
 GET /api/posts: List all posts
 GET /api/posts/{name}: List all posts by a specific user
 
