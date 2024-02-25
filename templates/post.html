@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <title>whyb.</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar">
+        <div class="logo_item">
+            <i class="bx bx-menu" id="sidebarOpen"></i>
+        </div>
+    </nav>
+
+    <!-- sidebar -->
+    <nav class="sidebar">
+        <div class="menu_content">
+            <ul class="menu_items">
+                <div class="logo">
+                    <a href="/index">
+                        whyb.
+                    </a>
+
+                </div>
+                <div class="bottom_content">
+                    <a href="/index" class="nav_link submenu_item">
+                        <span class="navlink">FEED</span>
+                    </a>
+                    <a href="/search" class="nav_link submenu_item">
+                        <span class="navlink">SEARCH</span>
+                    </a>
+                    <a href="/post" class="nav_link submenu_item active">
+                        <span class="navlink">POST</span>
+                    </a>
+                    <a href="/profile" class="nav_link submenu_item">
+                        <span class="navlink">PROFILE</span>
+                    </a>
+                </div>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Main content -->
+    <main class="main-content">
+        <div class="full-area fulladdpost">
+            <h2 style="color: var(--white-color);font-size: 70px;text-align: center;padding: 70px;">
+                ADD POST
+            </h2>
+            <div class="posts">
+                <div class="post">
+                    <div class="post-image">
+                        <label for="image-upload">
+                            <img src="/static/img/postupload.jpg" class="image-upload-button" />
+                            <input type="file" id="image-upload" style="display: none;" accept="image/*"
+                                onchange="previewImage(event)">
+                        </label>
+                    </div>
+                    <div class="post-details addpostrepo" style="width: 100%;height: 100%;">
+                        <div class="post-caption " style="width: 100%;height: 300px;">
+                            <input type="text" id="caption" class="for-upload" placeholder="Enter your caption...">
+
+                        </div>
+                        <div class="post-actions">
+                            <button class="post-actions-button" id="button-green" style="width: 100%;margin-top: 40px;"
+                                onclick="addPost()">
+                                <img src="/static/img/plus.png" style="height: 70%;">Add Post
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="/static/js/script.js"></script>
+    <script>
+        function previewImage(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function () {
+                const img = document.querySelector('.post-image img');
+                img.src = reader.result;
+            }
+            reader.readAsDataURL(file);
+        }
+
+        function addPost() {
+            const imageSrc = document.querySelector('.post-image img').src;
+            const caption = document.getElementById('caption').value;
+            const imageInput = document.getElementById('image-upload');
+
+            const formData = new FormData(); 
+            formData.append('image', imageInput.files[0]);
+            formData.append('caption', caption);
+            fetch('/post_image', {
+            method: 'POST',
+            body: formData
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        }); 
+           
+            const postData = {
+                imageSrc: imageSrc,
+                caption: caption
+            };
+
+            console.log(postData); 
+        }
+    </script>
+</body>
+
+</html>

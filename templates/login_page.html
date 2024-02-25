@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login page</title>
+  <script src="https://kit.fontawesome.com/0769935108.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/static/css/style1.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="/static/js/main.js"></script>
+</head>
+
+<body style="background-color: var(--black3-color);margin-top: 180px;margin-bottom: -100px;overflow: hidden;">
+
+  <div class="d-flex flex-row-reverse" style="display: none;">
+    <div class="p-5" id="users">
+      <button id="use" type="button" class="btn btn-lg btn-outline-secondary custom-btn user-users-button">
+        <i class="fa-solid fa-users fa-2xl"></i>
+      </button>
+    </div>
+    <div class="p-5" id="user" style="display: none;">
+      <button id="admin" type="button" onclick="show()"
+        class="btn btn-lg btn-outline-secondary custom-btn user-users-button">
+        <i class="fa-solid fa-user fa-2xl"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="logo"
+    style="text-align: center;margin-top: 20px;font-size: 40px;color: var(--red-color);font-weight: bold;margin-bottom: -100px;">
+    whyb.
+  </div>
+  <form class="lf" id="myform" method="post">
+    <h3 id="title">USER LOGIN</h3>
+    <div class="input-group flex-nowrap input-group-lg">
+      <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
+      <input id="inp1" name="name" type="text" class="form-control" placeholder="Username" aria-label="Username"
+        aria-describedby="addon-wrapping">
+    </div>
+    <div class="input-group flex-nowrap input-group-lg ">
+      <span class="input-group-text" id="addon-wrapping1"><i class="fa-solid fa-lock"></i></span>
+      <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Username"
+        aria-describedby="addon-wrapping">
+    </div>
+    <p id="alert" style="font-size:15px;"></p>
+    <div class="bttn">
+      <button type="submit" onclick="submitform1()" id="btn1"
+        class="btn btn-outline-light btn-lg rounded-pill ">LOGIN</button>
+      <button type="submit" onclick="submitform2()" id="btn2"
+        class="btn btn-outline-light btn-lg rounded-pill ">REGISTER</button>
+    </div>
+    <div id="acc" style="text-align: center;">
+      <p style="font-size: 18px">Don't have an account?<b>Register</b></p>
+    </div>
+  </form>
+  <script>
+    const form = document.getElementById("myform");
+    let di = document.getElementById("acc");
+    let adbtn = document.getElementById("admin");
+    let usbtn = document.getElementById("use");
+    let rgbtn = document.getElementById("btn2");
+    let lgbtn = document.getElementById("btn1");
+    let til = document.getElementById("title");
+    let us = document.getElementById("user");
+    let uss = document.getElementById("users");
+    let d = document.getElementById("alert");
+    const a1 = document.getElementById("admin");
+    var dis = "{{disp}}";
+    if (dis == "1") { a1.click(); }
+    if (dis == "TRUE") {
+      d.style.display = "none";
+    }
+    else {
+      d.style.display = "contents";
+      d.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "{{content}}";
+    }
+    function show() {
+      rgbtn.style.display = "none";
+      til.innerHTML = "ADMIN LOGIN";
+      lgbtn.style.transition = "0.5s"
+      lgbtn.style.width = "340px";
+      us.style.display = "none";
+      uss.style.display = "block";
+      di.style.display = "none";
+      d.style.display = "none";
+    }
+    usbtn.onclick = function () {
+      lgbtn.style.transition = "0s";
+      lgbtn.style.width = "160px";
+      til.innerHTML = "USER LOGIN";
+      us.style.display = "block";
+      uss.style.display = "none";
+      rgbtn.style.transition = "0.5s";
+      rgbtn.style.display = "inline";
+      di.style.display = "block";
+      d.style.display = "none";
+    }
+    function submitform1() {
+      const id = document.createElement("input")
+      id.type = "hidden";
+      id.name = "ch";
+      id.value = "1";
+      form.appendChild(id);
+      form.submit();
+    }
+    function submitform2() {
+      const id = document.createElement("input");
+      id.type = "hidden";
+      id.name = "ch";
+      id.value = "0";
+      form.appendChild(id);
+      form.submit();
+    }
+  </script>
+</body>
+
+</html>

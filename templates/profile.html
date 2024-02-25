@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <title>whyb.</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar">
+        <div class="logo_item">
+            <i class="bx bx-menu" id="sidebarOpen"></i>
+        </div>
+    </nav>
+
+    <!-- sidebar -->
+    <nav class="sidebar">
+        <div class="menu_content">
+            <ul class="menu_items">
+                <div class="logo">
+                    <a href="/feed">
+                        whyb.
+                    </a>
+
+                </div>
+                <div class="bottom_content">
+                    <a href="/feed" class="nav_link submenu_item">
+                        <span class="navlink">FEED</span>
+                    </a>
+                    <a href="/search" class="nav_link submenu_item">
+                        <span class="navlink">SEARCH</span>
+                    </a>
+                    <a href="/post" class="nav_link submenu_item">
+                        <span class="navlink">POST</span>
+                    </a>
+                    <a href="/profile" class="nav_link submenu_item active">
+                        <span class="navlink">PROFILE</span>
+                    </a>
+                </div>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Main content -->
+    <main class="main-content">
+        <div class="full-area" style="flex-direction: column;">
+            <div class="posts">
+                <div class="post" style="min-height: 350px;max-height: 350px;;">
+                    <div class="post-image" style="width: 20%; border-radius: 50%;min-width: 250px;height: 250px;">
+                        <img src="/static/img/{{user.user_id}}.png" style="max-height: 250px;width:250px;
+                    ">
+                    </div>
+                    <div class="post-details" style="width: 30%;">
+                        <div class="post-profile">
+                            <div class="post-profile-pic">
+                            </div>
+                            <div class="post-profile-username" style="margin-left: 0px;    padding: 0px;">
+                                <h2 style="font-size: 50px;">{{user.name}}</h2>
+                                <h4>{{user.username}}</h4>
+                            </div>
+                        </div>
+                        <div class="post-actions" style="margin-top: 20px;">
+                            <button class="post-actions-button" id="button-blue">
+                                <img src="/static/img/share.png">Share</button>
+                        </div>
+                    </div>
+                    <div class="profile-counts"
+                        style="width: 50%;display: flex;text-align: center;flex-direction: row;justify-content: right;align-items: center;color: var(--red-color);">
+                        <div style="padding: 20px;">
+                            <h2 style="font-size: 90px;">39</h2>
+                            <h4>Posts</h4>
+                        </div>
+                        <div style="padding: 20px;">
+                            <h2 style="font-size: 90px;">33</h2>
+                            <h4>Like</h4>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <div style="display: flex; flex-direction: row;">
+                    <div class="searched-results" style="margin-bottom: -20px;">
+                        <h4 style="font-weight: normal; font-size: 20px;">Name</h4>
+                        <div id="nameField" onclick="updateField(this,'name')">
+                            <h2
+                                style="font-size: 40px;margin-top: -10px;margin-bottom: 20px;text-decoration: underline dashed 0.8px;">
+                                {{user.name}}
+                            </h2>
+                        </div>
+                        <h4 style="font-weight: normal; font-size: 20px;">Username</h4>
+                        <div id="usernameField" onclick="updateField(this)">
+                            <h2
+                                style="font-size: 40px;margin-top: -10px;margin-bottom: 20px;text-decoration: underline dashed 0.8px;">
+                                {{user.username}}
+                            </h2>
+                        </div>
+                        <h4 style="font-weight: normal; font-size: 20px;">Gender</h4>
+                        <div id="genderField" onclick="updateField(this,'gender')">
+                            <h2
+                                style="font-size: 40px;margin-top: -10px;text-decoration: underline dashed 0.8px;margin-bottom: -20px;">
+                                {{userdet.gender}}
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="searched-results" style="margin-bottom: -20px;" style="margin-right: 0px;">
+                        <h4 style="font-weight: normal;font-size: 20px;">Phone</h4>
+                        <h2 onclick="updateField(this,'phone')"
+                            style="font-size: 40px;margin-top: -10px;margin-bottom: 20px;text-decoration: underline dashed 0.8px;">
+                            {{userdet.ph_no}} </h2>
+                        <h4 style="font-weight: normal;font-size: 20px;">Mail</h4>
+                        <h2 onclick="updateField(this,'email')"
+                            style="font-size: 40px;margin-top: -10px;margin-bottom: 20px;text-decoration: underline dashed 0.8px;">
+                            {{userdet.email}}</h2>
+                        <h4>Bio</h4>
+                        <h2 onclick="updateField(this,'bio')"
+                            style="font-size: 20px;margin-top: -10px;text-decoration: underline dashed 0.8px;margin-bottom: -20px;">
+                            {{userdet.bio}}</h2>
+                    </div>
+                    <div class="searched-results" style="margin-bottom: -20px;" style="margin-right: 0px;">
+                        <h4 style="font-weight: normal;font-size: 20px;">Login Streak</h4>
+                        <h2
+                            style="font-size: 40px;margin-top: -10px;margin-bottom: 20px;text-decoration: underline dashed 0.8px;">
+                            {{userdet.login_streak}}</h2>
+                        <h4 style="font-weight: normal;font-size: 20px;">Posts Liked by you </h4>
+                        <h2
+                            style="font-size: 40px;margin-top: -10px;margin-bottom: 20px;text-decoration: underline dashed 0.8px;">
+                            {{total_likes}}</h2>
+                        <button class="post-actions-button" id="button-red" style="width: 100%;">
+                            <img src="/static/img/logout.png"><a href="/"
+                                style="text-decoration: none;color: var(--red-color);">Logout</a></span></button>
+
+
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <script src="/static/js/script.js"></script>
+    <script>
+        function updateField(element) {
+            const currentValue = element.textContent.trim();
+            const newValue = prompt("Enter new value:", currentValue);
+            if (newValue !== null) {
+                element.innerHTML = '<h2 style="font-size: 40px;margin-top: -10px;margin-bottom: 20px;text-decoration: underline dashed 0.8px;">' + newValue + '</h2>';
+                yourFunction(newValue);
+                fetch('/profile', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ "element": v, "value": newValue }),
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Failed to update like count');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+
+            }
+        }
+
+        function yourFunction(value) {
+            console.log('Value updated:', value);
+        }
+    </script>
+</body>
+
+</html>

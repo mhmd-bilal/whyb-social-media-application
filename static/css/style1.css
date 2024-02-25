@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@200;300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Epilogue", sans-serif;
+}
+
+:root {
+    --black3-color: #090909;
+    --black2-color: #202020;
+    --red-color: #C96060;
+    --white-color: #D2D2D2;
+    --red-color-light: #aaa;
+    --green-color: #6FC960;
+    --blue-color: #60B6C9;
+}
+
+
+body {
+    background-color: var(--black3-color);
+    color: var(--red-color);
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-family: 'Epilogue', sans-serif;
+}
+
+.lf {
+    margin: 140px auto;
+    border-radius: 20px;
+    width: 450px;
+    height: 500px;
+    color: var(--white-color);
+    padding: 20px 40px;
+    background-color: var(--black2-color);
+    box-shadow: 10px 10px var(--red-color);
+}
+
+.lf>.input-group {
+    width: auto;
+    margin-top: 50px;
+}
+
+.lf>div {
+
+    margin: 30px 20px;
+}
+
+h3 {
+    padding-top: 30px;
+    text-align: center;
+}
+
+#btn1,
+#btn2 {
+    margin-top: 20px;
+    width: 160px;
+    font-weight: bolder;
+    transition: 0.5s;
+}
+
+#btn2 {
+    transition: max-height 0.5s;
+    overflow: hidden;
+}
+
+#users {
+    display: none;
+}
+
+.custom-btn.user-users-button {
+    background-color: transparent;
+    color: var(--red-color);
+    border-color: var(--red-color);
+    padding: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.custom-btn.user-users-button:hover {
+    background-color: var(--red-color);
+    color: var(--white-color);
+    border-color: var(--red-color);
+}

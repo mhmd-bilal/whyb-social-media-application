@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <title>whyb.</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <style>
+        .circle-container {
+            height: 100px;
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 5px solid rgb(189, 185, 185);  */
+            background-color: transparent;
+            border-radius: 50%;
+            margin: 10px;
+        }
+
+        .box {
+            width: 500px;
+            height: 200px;
+            border-radius: 10px;
+            display: flex;
+        }
+
+        .left {
+            flex: 1;
+        }
+
+        .partition {
+            width: 1px;
+            background-color: #000;
+        }
+
+        .right {
+            border: 2px solid black;
+            border-radius: 0px 10px 10px 0px;
+            flex: 1;
+            background-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo_item">
+            <i class="bx bx-menu" id="sidebarOpen"></i>
+        </div>
+    </nav>
+
+    <nav class="sidebar">
+        <div class="menu_content">
+            <ul class="menu_items">
+                <div class="logo">
+                    <a href="/index">
+                        whyb.
+                    </a>
+
+                </div>
+                <div class="bottom_content">
+                    <a href="/feed" class="nav_link submenu_item">
+                        <span class="navlink">FEED</span>
+                    </a>
+                    <a href="/search" class="nav_link submenu_item active">
+                        <span class="navlink">SEARCH</span>
+                    </a>
+                    <a href="/post" class="nav_link submenu_item">
+                        <span class="navlink">POST</span>
+                    </a>
+                    <a href="/profile" class="nav_link submenu_item">
+                        <span class="navlink">PROFILE</span>
+                    </a>
+                </div>
+            </ul>
+        </div>
+    </nav>
+
+
+    <main class="main-content">
+        <div class="full-area fullsearch" style="flex-direction: column;">
+            <div class="search-bar">
+                <form class="nosubmit" id="search" method="post">
+                    <input class="nosubmit" type="search" id="sea" name="user_search"
+                        placeholder="Type username, song, message, or anything......and press enter">
+                </form>
+            </div>
+            <div class="searches">
+                <div class="searched-results">
+                    <h2>&emsp;Users</h2>
+                    <ul style="font-size: 10%">
+                        {% if users %}
+                        {% for i in users %}
+                        <li style="display:flex;">
+                            <div class="circle-container"><img src="/static/img/{{i.user_id}}.png"
+                                    style="transform:scale(1.1);height:100px;width:100px;border-radius: 50px;"></div>
+                            <div style="display:flex;flex-direction:column;">
+                                <h4 style="margin-top: 25px"> &emsp;&emsp;{{i.username}}</h4>
+                                <p style="font-size:20px;">&emsp;&emsp;&emsp;{{i.name}}</p>
+                            </div>
+                        </li><br><br>
+                        {% endfor %}
+                        {% else %}
+                        <p style="font-size: 20px;">No users found</p>
+                        {% endif %}
+                    </ul>
+                </div>
+
+                <div class="searched-results" style="margin-right: 0px;">
+                    <h2>Posts</h2>
+                    <ul>
+                        {% if posts %}
+                        {% for i in posts %}
+                        <li>
+                            <div class="box" style="height: fit-content;">
+                                <div class="left">
+                                    <img src="/static/img/{{i.post_id}}.png"
+                                        style="border-radius: 42px;width: 300px;height:300px">
+                                </div>
+                                <div class="right" style="padding: 30px;border: none;background-color: transparent;">
+                                    <h4 style="font-size: 20px;">@bilalthecreator</h4>
+                                    <p style="font-size: 15px;">{{i.caption}}</p>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                        {% else %}
+                        <p style="font-size: 20px;">No posts found</p>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/js/script.js"></script>
+    <script>
+        var input = document.getElementById("sea");
+
+        input.addEventListener("keydown", function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                const f1 = document.getElementById('search');
+                f1.submit();
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
