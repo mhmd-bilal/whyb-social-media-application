@@ -110,5 +110,7 @@ GET /api/posts/{name}: List all posts by a specific user
 ![5](https://github.com/mhmd-bilal/whyb-social-media-application/assets/131635254/a3141e8c-046a-4a8e-9ab8-8d88b4426b6b)
 ![6](https://github.com/mhmd-bilal/whyb-social-media-application/assets/131635254/c8815dd7-8d31-40d3-a606-3b4d0df33142)
 
+Screen Recording: https://drive.google.com/file/d/1sdcn1MudIgSM77172ocfKHUFMDGvxcQs/view?usp=sharing
+
 ## Creator
 By Bilal
