@@ -1,130 +1,29 @@
 openapi: 3.0.3
 info:
-  title: Swagger Grocerystore - OpenAPI 3.0
+  title: whyb Social Media API
   description: |-
-    Streamline your e-commerce platform with this comprehensive API, enabling effortless CRUD actions for managing product categories and items. Simplify inventory management, update product details, and create or remove categories seamlessly for a polished online shopping experience.
-  
-  termsOfService: http://swagger.io/terms/
-  contact:
-    email: apiteam@swagger.io
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: 1.0.11
-externalDocs:
-  description: Find out more about Swagger
-  url: http://swagger.io
+    API for managing users and posts in the whyb social media platform.
+  version: 1.0.0
 servers:
-  - url: http://127.0.0.1:8080
+  - url: http://api.whyb.com
 tags:
-  - name: Category
-    description: Everything about your Grocery store
-    externalDocs:
-      description: Find out more
-      url: http://swagger.io
-  - name: Product
-    description: Access to store orders
-    externalDocs:
-      description: Find out more about our store
-      url: http://swagger.io
+  - name: User
+    description: Operations related to users
+  - name: Post
+    description: Operations related to posts
 paths:
-  /api/categories:
+  /api/users/{user_name}:
     get:
       tags:
-        - Category
-      summary: Get all categories
-      description: Retrieve a list of all categories available.
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    category_id:
-                      type: string
-                    category_name:
-                      type: string
-        '505':
-          description: Server Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: An internal server error occurred.
-  /api/categories/:  
-    post:
-      tags:
-        - Category
-      summary: Add a new category to the store
-      description:  Add a new category to the store
-      operationId: Add Category
-      requestBody:
-        description: Update an existent category 
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                category_name:
-                  type: string
-      responses:
-        '200':
-          description: Successfully updated
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    category_id:
-                      type: string
-                    category_name:
-                      type: string
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Category name is required.
-        '409':
-          description: Category name already exists
-        '500':
-          description: Server Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: An internal server error occurred.
-  
-  /api/categories/{category_name}:
-    get:
-      tags:
-        - Category
-      summary: Get all categories
+        - User
+      summary: Get users by username
       parameters:
-        - name: category_name
+        - name: user_name
           in: path
-          description: ID of the category to retrieve
+          description: Username of the user to retrieve
           required: true
           schema:
             type: string
-      description: Retrieve a list of all categories available.
       responses:
         '200':
           description: Successful operation
@@ -135,70 +34,14 @@ paths:
                 items:
                   type: object
                   properties:
-                    category_id:
+                    user_id:
+                      type: integer
+                    username:
                       type: string
-                    category_name:
+                    name:
                       type: string
-        '505':
-          description: Server Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: An internal server error occurred.
-  /api/categories/{category_id}:
-    put:
-      tags:
-        - Category
-      summary: Update an existing caetgory
-      parameters:
-        - name: category_id
-          in: path
-          description: ID of the category to retrieve
-          required: true
-          schema:
-            type: integer
-      description: Operation to upgrade a category
-      operationId: updatecategory
-      requestBody:
-        description: Update an existent category 
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                category_name:
-                  type: string
-      responses:
-        '200':
-          description: Successfully updated
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    category_id:
+                    password:
                       type: string
-                    category_name:
-                      type: string
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Category name is required.
-        '404':
-          description: Category does not exist.
         '500':
           description: Server Error
           content:
@@ -209,202 +52,37 @@ paths:
                   message:
                     type: string
                     example: An internal server error occurred.
-    delete:
-      tags:
-        - Category
-      summary: Deletes a category
-      parameters:
-        - name: category_id
-          in: path
-          description: ID of the category to delete
-          required: true
-          schema:
-            type: integer
-      description: delete a category
-      operationId: deleteCategory
-      responses:
-        '200':
-          description: Successfully deleted
-        '404':
-          description: Category does not exist
-        '500':
-          description: Server Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: An internal server error occurred.
-  /api/products:
+  /api/posts/{caption}:
     get:
       tags:
-        - Product
-      summary: Get all product
-      description: Retrieve a list of all products available.
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    product_id:
-                      type: integer
-                    product_name:
-                      type: string
-                    brand:
-                      type: string
-                    man_date:
-                      type: string
-                    exp_date:
-                      type: string
-                    rate:
-                      type: number
-                    stock:
-                      type: integer
-                    category_id:
-                      type: integer
-                    quantity:
-                      type: string
-                    rating:
-                      type: integer
-        '500':
-          description: Server Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: An internal server error occurred.
-  /api/products/:  
-    post:
-      tags:
-        - Product
-      summary: Add a new product to the store
-      description:  Add a new product to the store
-      operationId: Add Product
-      requestBody:
-        description: Adding a product 
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                product_name:
-                  type: string
-                brand:
-                  type: string
-                man_date:
-                  type: string
-                exp_date:
-                  type: string
-                rate:
-                  type: number
-                stock:
-                  type: integer
-                category_id:
-                  type: integer
-                quantity:
-                  type: string
-                rating:
-                  type: integer
-      responses:
-        '200':
-          description: Successfully created
-          content:
-            application/json:
-              schema:
-                  type: object
-                  properties:
-                    product_id:
-                      type: integer
-                    product_name:
-                      type: string
-                    brand:
-                      type: string
-                    man_date:
-                      type: string
-                      format: date
-                    exp_date:
-                      type: string
-                    rate:
-                      type: number
-                    stock:
-                      type: integer
-                    category_id:
-                      type: integer
-                    quantity:
-                      type: string
-                    rating:
-                      type: integer
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Product name is required.
-        '500':
-          description: Server Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: An internal server error occurred.
-  /api/products/{category_id}:
-    get:
-      tags:
-        - Product
-      summary: Get all products
+        - Post
+      summary: Get posts by caption
       parameters:
-        - name: category_id
+        - name: caption
           in: path
-          description: ID of the product to retrieve
+          description: Caption of the post to retrieve
           required: true
           schema:
             type: string
-      description: Retrieve a list of all product available.
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
+                type: array
+                items:
                   type: object
                   properties:
-                    product_id:
-                      type: string
-                    product_name:
-                      type: string
-                    brand:
-                      type: string
-                    man_date:
-                      type: string
-                    exp_date:
-                      type: string
-                    rate:
-                      type: number
-                    Stock:
+                    post_id:
                       type: integer
-                    category_id:
-                      type: integer
-                    quantity:
+                    caption:
                       type: string
-                    rating:
+                    likes:
+                      type: integer
+                    content:
+                      type: string
+                    user_id:
                       type: integer
         '500':
           description: Server Error
@@ -416,157 +94,3 @@ paths:
                   message:
                     type: string
                     example: An internal server error occurred.
-  /api/products/{product_name}:
-    get:
-      tags:
-        - Product
-      summary: Get all product
-      parameters:
-        - name: product_name
-          in: path
-          description: ID of the product to retrieve
-          required: true
-          schema:
-            type: string
-      description: Retrieve a list of all products available.
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                  type: object
-                  properties:
-                    product_id:
-                      type: number
-                    product_name:
-                      type: string
-                    brand:
-                      type: string
-                    man_date:
-                      type: string
-                    exp_date:
-                      type: string
-                    rate:
-                      type: number
-                    stock:
-                      type: integer
-                    category_id:
-                      type: integer
-                    quantity:
-                      type: string
-                    rating:
-                      type: integer
-        '500':
-          description: Server Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: An internal server error occurred.
-  /api/products/{product_id}:
-    put:
-      tags:
-        - Product
-      summary: Update an existing product
-      parameters:
-        - name: product_id
-          in: path
-          description: ID of the product to retrieve
-          required: true
-          schema:
-            type: integer
-      description: Operation to upgrade a product
-      operationId: updateproduct
-      requestBody:
-        description: Update an existent product 
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                product_name:
-                  type: string
-                brand:
-                  type: string
-                man_date:
-                  type: string
-                exp_date:
-                  type: string
-                rate:
-                  type: number
-                stock:
-                  type: integer
-                category_id:
-                  type: integer
-                quantity:
-                      type: string
-                rating:
-                  type: integer
-      responses:
-        '200':
-          description: Successfully updated
-          content:
-            application/json:
-              schema:
-                  type: object
-                  properties:
-                    category_id:
-                      type: string
-                    category_name:
-                      type: string
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Product name is required.
-        '404':
-          description: Product does not exist
-        '500':
-          description: Server Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: An internal server error occurred.
-    delete:
-      tags:
-        - Product
-      summary: Deletes a Product
-      parameters:
-        - name: product_id
-          in: path
-          description: ID of the product to delete
-          required: true
-          schema:
-            type: integer
-      description: delete a product
-      operationId: deleteProduct
-      responses:
-        '200':
-          description: Successfully deleted
-        '404':
-          description: Product does not exist
-        '500':
-          description: Server Error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example:  An internal server error occurred. 
-    
