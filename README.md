@@ -1,7 +1,7 @@
 # whyb. {A Social Media Application}
 
 This is a social media application developed as a project for the BusinessOnBot internship. The application allows users to create accounts, log in, share posts publicly, search for users, and more.
-Visit here: [whyb](http://bzhal.pythonanywhere.com/) (Files are getting uploaded)
+Visit here: [whyb](http://bzhal.pythonanywhere.com/) (Server issues with pythonanywhere, I'm unable to host)
 
 ## Table of Contents
 
