@@ -1,7 +1,7 @@
 # whyb. {A Social Media Application}
 
 This is a social media application developed as a project for the BusinessOnBot internship. The application allows users to create accounts, log in, share posts publicly, search for users, and more.
-Visit here: [whyb](http://bzhal.pythonanywhere.com/)
+Visit here: [whyb](http://bzhal.pythonanywhere.com/) (Files are getting uploaded)
 
 ## Table of Contents
 
@@ -21,7 +21,7 @@ Visit here: [whyb](http://bzhal.pythonanywhere.com/)
 
 Welcome to whyb.: Your one-stop-shop for music mayhem! 🎵 Found yourself jamming to a tune and bursting with opinions? Whether it's Spotify, iTunes, or any other platform, whyb. has got your back! Imagine this: You're grooving to a killer track, and suddenly, you're hit with the urge to spill your thoughts. But where to? Fear not! whyb. is your musical soapbox in the digital cosmos!
 
-It's your chance to unleash your inner critic or dive into the chaos of comments sections. 🎤 But here's the kicker: Your opinions aren't just whispers—they're heard across the globe! From Kkarnataka to Kazakhstan, anyone can tune in, read your reviews, and join the fun!
+It's your chance to unleash your inner critic or dive into the chaos of comments sections. 🎤 But here's the kicker: Your opinions aren't just whispers—they're heard across the globe! From Karnataka to Kazakhstan, anyone can tune in, read your reviews, and join the fun!
 
 So, when you're ready to dissect a beat or praise a riff, remember one word: whyb. 🎸 Because in life's symphony, your voice deserves to be the star solo! 🌟
 
