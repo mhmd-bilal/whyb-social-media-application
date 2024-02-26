@@ -4,7 +4,7 @@ from flask_restful import Resource, Api
 from applications import config
 from applications.config import LocalDevelopmentConfig
 from applications.database import db
-#from flask_cors import CORS
+from flask_cors import CORS
 
 
 app = None
