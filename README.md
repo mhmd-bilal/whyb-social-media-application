@@ -49,7 +49,7 @@ So, when you're ready to dissect a beat or praise a riff, remember one word: why
 1. Clone the repository:
 
 ```bash
-   git clone https://github.com/your-username/social-media-app.git
+git clone https://github.com/mhmd-bilal/whyb-social-media-application.git
 ```
 
 2. Install dependencies:
