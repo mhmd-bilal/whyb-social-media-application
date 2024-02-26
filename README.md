@@ -114,4 +114,4 @@ GET /api/posts/{name}: List all posts by a specific user
 Screen Recording: https://drive.google.com/file/d/1sdcn1MudIgSM77172ocfKHUFMDGvxcQs/view?usp=sharing
 
 ## Creator
-By Bilal
+Bilal
